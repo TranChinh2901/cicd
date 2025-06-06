@@ -1,7 +1,12 @@
 const express = require('express');
-const { registerController, loginController, getUserController } = require('../controllers/auth.controller');
+const { registerController, loginController, getUserController, getUserByIdController, countUsersController, deleteUserController, updateUserController } = require('../controllers/auth.controller');
+const { requireSignIn, isAdmin } = require('../middlewares/middleware');
 const router = express.Router();
 router.post('/register', registerController)
 router.post('/login', loginController)
 router.get('/users', getUserController)
+router.get('/users/:id', getUserByIdController)
+router.get('/count-users', countUsersController)
+router.delete('/users/:id', requireSignIn, isAdmin, deleteUserController)
+router.put('/users/:id', requireSignIn, isAdmin, updateUserController)
 module.exports = router;
