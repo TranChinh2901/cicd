@@ -2,7 +2,7 @@ const { mongoose } = require("mongoose")
 
 const categoryLanguagesSchema = new mongoose.Schema({
     //create category schema
-    name: {
+    nameC: {
         type: String,
         required: true,
         trim: true
@@ -12,15 +12,15 @@ const categoryLanguagesSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    image: {
+    imageC: {
         type: String,
         required: true,
     },
-    imageBanner: {
+    imageBannerC: {
         type: String,
         required: true,
     },
-    description: {
+    descriptionC: {
         type: String,
         required: true,
     },
