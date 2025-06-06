@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const connectDB = require('./config/database');
-const usersRouter = require('./routes/auth.router');
+const usersRouter = require('./routes/auth.route');
+const brandLanguagesRouter = require('./routes/brandLanguages.route')
 
 require('dotenv').config();
 
@@ -19,6 +20,7 @@ connectDB();
 
 const PORT = process.env.PORT || 3001;
 app.use('/api/v1/auth/', usersRouter)
+app.use('/api/v1/brand/', brandLanguagesRouter)
 
 
 app.get('/', (req, res) => {
