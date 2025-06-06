@@ -6,7 +6,7 @@ const connectDB = require('./config/database');
 const usersRouter = require('./routes/auth.route');
 const brandLanguagesRouter = require('./routes/brandLanguages.route')
 const categoryLanguagesRouter = require('./routes/categoryLanguages.route');
-
+const languagesRouter = require('./routes/language.route')
 require('dotenv').config();
 
 const app = express();
@@ -20,10 +20,10 @@ app.use(morgan('dev'))
 connectDB();
 
 const PORT = process.env.PORT || 3001;
-app.use('/api/v1/auth/', usersRouter)
-app.use('/api/v1/brand/', brandLanguagesRouter)
-app.use('/api/v1/category/',categoryLanguagesRouter)
-
+app.use('/api/v1/auth/', usersRouter);
+app.use('/api/v1/brand/', brandLanguagesRouter);
+app.use('/api/v1/category/',categoryLanguagesRouter);
+app.use('/api/v1/language/', languagesRouter);
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });

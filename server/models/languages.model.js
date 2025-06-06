@@ -18,13 +18,9 @@ const languagesSchema = new mongoose.Schema(
             required: true,
         },
         image: {
-            data: Buffer,
-            contentType: String,
+            type: String,
+            required: true,
         },
-        images: [{
-            data: Buffer,
-            contentType: String
-        }],
         categoryLanguages: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "CategoryLanguages",
