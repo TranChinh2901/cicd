@@ -33,6 +33,25 @@ const createLanguagesController = async (req, res) => {
         });
     }
 }
+const getAllLanguagesController = async (req, res) => {
+    try {
+        const languages = await languagesModel.find({})
+            .populate('categoryLanguages', 'nameC')
+            .populate('brandLanguages', 'nameBrand');
+        return res.status(200).json({
+            success: true,
+            message: 'Languages fetched successfully',
+            data: languages
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'Error fetching languages',
+            error: error.message
+        });
+    }
+}
  module.exports ={
-        createLanguagesController
+        createLanguagesController,
+        getAllLanguagesController
     }
