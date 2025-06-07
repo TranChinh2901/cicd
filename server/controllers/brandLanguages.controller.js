@@ -129,10 +129,27 @@ const deleteBrandLanguage = async (req, res) => {
         })
     }
 }
+const countBrandLanguages = async (req, res) => {
+    try {
+        const count = await brandLanguagesModel.countDocuments();
+        return res.status(200).json({
+            success: true,
+            message: 'Count brand languages successfully',
+            data: { count }
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'Error counting brand languages',
+            error: error.message
+        });
+    }
+}
 module.exports = {
     createBrandLanguage,
     getBrandLanguages,
     getBrandLanguageBySlug,
     updateBrandLanguage,
-    deleteBrandLanguage
+    deleteBrandLanguage,
+    countBrandLanguages
 };

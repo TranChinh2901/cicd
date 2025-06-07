@@ -144,10 +144,27 @@ const deleteLanguagesController = async (req, res) => {
         })
     }
 }
+const countLanguagesController = async (req, res) => {
+    try {
+        const count = await languagesModel.countDocuments();
+        return res.status(200).json({
+            success: true,
+            message: 'Count languages successfully',
+            data: { count }
+        })  
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'Error counting languages',
+            error: error.message
+        });
+    }
+}
  module.exports = {
         createLanguagesController,
         getAllLanguagesController,
         getLanguageBySlugController,
         updateLanguagesController,
-        deleteLanguagesController
+        deleteLanguagesController,
+        countLanguagesController
     }

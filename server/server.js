@@ -7,6 +7,7 @@ const usersRouter = require('./routes/auth.route');
 const brandLanguagesRouter = require('./routes/brandLanguages.route')
 const categoryLanguagesRouter = require('./routes/categoryLanguages.route');
 const languagesRouter = require('./routes/language.route')
+const blogLanguagesRouter = require('./routes/blogLanguages.route');
 require('dotenv').config();
 
 const app = express();
@@ -24,6 +25,7 @@ app.use('/api/v1/auth/', usersRouter);
 app.use('/api/v1/brand/', brandLanguagesRouter);
 app.use('/api/v1/category/',categoryLanguagesRouter);
 app.use('/api/v1/language/', languagesRouter);
+app.use('/api/v1/blog/', blogLanguagesRouter)
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });

@@ -142,12 +142,29 @@ const getCategoryLanguagesBySlugController = async (req, res) => {
         })
     }
 }
+const countCategoryLanguagesController = async (req, res) => {
+    try {
+        const count = await categoryLanguagesModel.countDocuments();
+        return res.status(200).json({
+            success: true,
+            message: 'Count fetched successfully',
+            data: count
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'Error fetching count',
+            error: error.message
+        });
+    }
+}
 module.exports = {
     createCategoryLanguageController,
     getCategoryLanguagesController,
     updateCategoryLanguageController,
     deleteCategoryLanguageController,
-    getCategoryLanguagesBySlugController
+    getCategoryLanguagesBySlugController,
+    countCategoryLanguagesController
 }
 
 
