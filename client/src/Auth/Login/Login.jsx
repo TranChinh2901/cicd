@@ -41,7 +41,8 @@ const Login = () => {
                 
                 // Chuyển hướng dựa trên role
                 if (response.data.user_success.role === 1) {
-                    navigate('/admin/dashboard');
+                    navigate('/');
+                    // navigate('/admin/dashboard');
                 } else {
                     navigate('/');
                 }

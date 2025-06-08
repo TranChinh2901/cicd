@@ -11,10 +11,10 @@ const HomePage = () => {
     const isMobile = window.innerWidth <= 768;
     
     AOS.init({
-      duration: isMobile ? 600 : 1000,
+      duration: isMobile ? 900 : 1000,
       once: true,
       easing: 'ease-out-cubic',
-      disable: window.innerWidth < 480 ? true : false, 
+      disable: window.innerWidth < 180 ? true : false, 
     });
     
     window.addEventListener('load', () => {
