@@ -1,12 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { Spin } from 'antd';
+import Layout from './Layout';
 
 const Spinner = () => {
   return (
-    <div>
-
-    <h1> Spinner</h1>
+   <Layout>
+     <div style={{ textAlign: 'center', padding: '50px' }}>
+      <Spin size="large" />
     </div>
-  )
-}
+   </Layout>
+  );
+};
 
-export default Spinner
+export default Spinner;

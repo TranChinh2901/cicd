@@ -1,39 +1,64 @@
-import  { useEffect, useState } from 'react';
-import axios from 'axios';
-import Header from './components/Layout/Header/Header';
-import Footer from './components/Layout/Footer/Footer';
 
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import Login from "./Auth/Login/Login";
+import Register from "./Auth/Register/Register";
+import PublicRoute from "./Router/PublicRoute";
+import UserRoute from "./Router/UserRoute";
+import AdminRoute from "./Router/AdminRoute";
+import Profile from "./pages/Profile/Profile";
 const App = () => {
-  const [brandName, setBrandName] = useState([]);
-  useEffect(() => {
-    const fetchBrandName = async () => {
-      try {
-        const res = await axios.get("http://localhost:3000/api/v1/brand/brandLanguages");
-        console.log('API Response:', res.data);
-        setBrandName(res.data.data);
-      } catch (error) {
-        console.error('Error fetching brand name:', error);
-      }
-    }
-    fetchBrandName();
-  }, [])
-
   return (
-    <div>
-      <Header/>
-      <h1>Brand Names</h1>
-      <h1>Welcome to the Algo</h1>
-      {
-        brandName?.map((brand, index) => (
-          <div key={index}>
-            <h2>{brand.nameBrand}</h2>
-            <img src={brand.logoBrand} alt={brand.nameBrand} />
-          </div>
-        ))
-      }
-      <Footer/>
-    </div>
-  )
-}
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<HomePage />} />
+     
+        
+        {/* Authentication Routes */}
+        <Route 
+          path="/login" 
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          } 
+        />
+        <Route 
+          path="/register" 
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          } 
+        />
+        
+        {/* Protected User Routes */}
+        <Route 
+          path="/profile" 
+          element={
+            <UserRoute>
+              <Profile />
+            </UserRoute>
+          } 
+        />
+        
+        {/* Protected Admin Routes */}
+        <Route 
+          path="/admin/dashboard" 
+          element={
+            <AdminRoute>
+              {/* <Dashboard /> */}
+            </AdminRoute>
+          } 
+        />
+        
+        {/* Error & Utility Routes */}
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;
