@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useEffect } from 'react';
 import AboutPage from '../AboutPage/AboutPage';
+import ProgramLanguages from '../ProgramLanguages/ProgramLanguages';
 
 const HomePage = () => {
    useEffect(() => {
@@ -53,6 +54,7 @@ const HomePage = () => {
           </div>
         </div>
         <AboutPage/>
+        <ProgramLanguages/>
        </div>
     </Layout>
   )

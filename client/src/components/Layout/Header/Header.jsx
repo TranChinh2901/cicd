@@ -36,11 +36,17 @@ const Header = () => {
         navigate('/');
     };
 
+    const handleSrollTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
     return (
         <header className={styles.header}>
             <div className={styles.container}>
                 <nav className={styles.nav}>
-                    <Link to="/" className={styles.logo}>
+                    <Link to="/" className={styles.logo} onClick={handleSrollTop}>
                         <div className={styles.logoIcon}>
                             <img src="https://the-algorithms.com/images/logo.svg" alt="" />
                         </div>

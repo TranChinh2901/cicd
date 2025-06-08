@@ -133,8 +133,8 @@ const AboutPage = () => {
                         <p>The Algorithms is the largest open-source algorithm library on GitHub, backed by an <br /> active community of developers worldwide.</p>
                     </div>
 
-                    <div className={styles.flexAboutBox}>
-                            <div className={styles.inFlexAboutBox}>
+                    <div data-aos="zoom-in" className={styles.flexAboutBox}>
+                            <div  className={styles.inFlexAboutBox}>
                                 <FaCircleCheck/>
                                 <p>Clear, well-documented implementations in multiple programming languages</p>
                             </div>
