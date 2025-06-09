@@ -1,0 +1,234 @@
+.containerCategory{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 60px;
+    /* padding: 0 20px; */
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.flexCategoryOne{
+    flex: 2;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.flexCategoryTwo{
+    flex: 1;
+    min-width: 300px;
+    box-sizing: border-box;
+    position: sticky;
+    height: fit-content;
+    top: 90px;
+    background: #f8f9fa;
+    /* padding: 20px; */
+    border-radius: 8px;
+}
+.flexCategoryTwo h3{
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: #333;
+}
+.headerSectionCategory{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.headerSectionCategory h2{
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.headerSectionCategory p{
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.categoriesGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.categoryCard{
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+.categoryImageWrapper{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.categoryImageWrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+
+.categoryContent{
+    padding: 20px;
+}
+
+.categoryContent h3{
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+}
+
+.categoryContent p{
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+    .containerCategory {
+        max-width: 100%;
+        padding: 0 15px;
+        gap: 15px;
+    }
+    
+    .flexCategoryTwo{
+        min-width: 250px;
+        padding: 15px;
+    }
+    
+    .categoriesGrid{
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+}
+
+/* Mobile Large */
+@media screen and (max-width: 768px) {
+    .containerCategory {
+        margin-top: 40px;
+        padding: 0 15px;
+        flex-direction: column;
+    }
+    
+    .flexCategoryOne{
+        flex: none;
+        width: 100%;
+    }
+    
+    .flexCategoryTwo{
+        position: static;
+        flex: none;
+        width: 100%;
+        min-width: auto;
+        margin-top: 30px;
+        order: 2;
+    }
+    
+    .headerSectionCategory h2{
+        font-size: 1.5rem;
+    }
+    
+    .headerSectionCategory p{
+        font-size: 1rem;
+    }
+    
+    .categoriesGrid{
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    .categoryImageWrapper{
+        height: 180px;
+    }
+}
+
+/* Mobile Medium */
+@media screen and (max-width: 640px) {
+    .categoriesGrid{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .categoryImageWrapper{
+        height: 200px;
+    }
+}
+
+/* Mobile Small */
+@media screen and (max-width: 480px) {
+    .containerCategory {
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+    
+    .headerSectionCategory{
+        margin-bottom: 20px;
+    }
+    
+    .headerSectionCategory h2{
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    
+    .headerSectionCategory p{
+        font-size: 0.95rem;
+    }
+    
+    .flexCategoryTwo{
+        margin-top: 20px;
+        padding: 15px;
+    }
+    
+    .categoryContent{
+        padding: 15px;
+    }
+    
+    .categoryContent h3{
+        font-size: 1rem;
+    }
+    
+    .categoryContent p{
+        font-size: 0.9rem;
+    }
+    
+    .categoryImageWrapper{
+        height: 160px;
+    }
+    .flexCategoryTwo h2{
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+}
+
+/* Mobile Extra Small */
+@media screen and (max-width: 360px) {
+    .containerCategory {
+        padding: 0 8px;
+    }
+    
+    .headerSectionCategory h2{
+        font-size: 1.2rem;
+    }
+    
+    .categoryImageWrapper{
+        height: 140px;
+    }
+    
+    .categoryContent{
+        padding: 12px;
+    }
+}

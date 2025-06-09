@@ -160,11 +160,87 @@ const countLanguagesController = async (req, res) => {
         });
     }
 }
+// ...existing code...
+
+const getLanguagesByCategoryController = async (req, res) => {
+    try {
+        const { brandSlug, categoryId } = req.params;
+        
+        // Find brand by slug
+        const BrandLanguages = require("../models/brandLanguages.model");
+        const brand = await BrandLanguages.findOne({ slug: brandSlug });
+        
+        if (!brand) {
+            return res.status(404).json({
+                success: false,
+                message: "Không tìm thấy thương hiệu"
+            });
+        }
+
+        // Find category by ID or slug
+        const CategoryLanguages = require("../models/categoryLanguages.model");
+        const category = await CategoryLanguages.findOne({
+            $or: [
+                { _id: categoryId },
+                { slug: categoryId }
+            ]
+        });
+        
+        if (!category) {
+            return res.status(404).json({
+                success: false,
+                message: "Không tìm thấy danh mục"
+            });
+        }
+
+        // Find languages by brand and category
+        const Languages = require("../models/languages.model");
+        const languages = await Languages.find({
+            brandLanguages: brand._id,
+            categoryLanguages: category._id
+        })
+        .populate('brandLanguages', 'nameBrand logoBrand slug')
+        .populate('categoryLanguages', 'nameC imageC descriptionC slug')
+        .sort({ createdAt: -1 }); // Sort by newest first
+
+        return res.status(200).json({
+            success: true,
+            message: `Tìm thấy ${languages.length} ngôn ngữ lập trình`,
+            data: {
+                languages,
+                brand: {
+                    name: brand.nameBrand,
+                    logo: brand.logoBrand,
+                    slug: brand.slug
+                },
+                category: {
+                    name: category.nameC,
+                    image: category.imageC,
+                    description: category.descriptionC,
+                    slug: category.slug
+                }
+            },
+            count: languages.length
+        });
+    } catch (error) {
+        console.error("Error in getLanguagesByCategoryController:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Lỗi khi lấy danh sách ngôn ngữ",
+            error: error.message
+        });
+    }
+};
+
+
+
+// ...existing code...
  module.exports = {
         createLanguagesController,
         getAllLanguagesController,
         getLanguageBySlugController,
         updateLanguagesController,
         deleteLanguagesController,
-        countLanguagesController
+        countLanguagesController,
+        getLanguagesByCategoryController
     }

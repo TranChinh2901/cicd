@@ -124,22 +124,37 @@ const deleteCategoryLanguageController = async (req, res) => {
 }
 const getCategoryLanguagesBySlugController = async (req, res) => {
     try {
-        const { slug } = req.params;
-        const categoryLanguages = await categoryLanguagesModel.findOne({
-            slug
+        const { slug } = req.params; 
+        
+        const brandLanguagesModel = require("../models/brandLanguages.model");
+        const brand = await brandLanguagesModel.findOne({ slug });
+        
+        if (!brand) {
+            return res.status(404).json({
+                success: false,
+                message: "Không tìm thấy brand với slug này",
+                categoryLanguages: null
+            });
+        }
+        
+        const categoryLanguages = await categoryLanguagesModel.find({
+            brandLanguages: brand._id  
         }).populate("brandLanguages");
+        
+        
         res.status(200).json({
             success: true,
             message: "Lấy danh mục theo slug thành công",
-            categoryLanguages
-        })
+            categoryLanguages,
+            brandName: brand.nameBrand 
+        });
     } catch (error) {
-        console.log(error);
+        console.log('Error in getCategoryLanguagesBySlugController:', error);
         return res.status(500).json({
             success: false,
             message: "Lỗi hàm lấy danh mục theo slug",
             error: error.message
-        })
+        });
     }
 }
 const countCategoryLanguagesController = async (req, res) => {

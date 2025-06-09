@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import styles from './ProgramLanguages.module.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 const API_URL = import.meta.env.VITE_API;
+
 const ProgramLanguages = () => {
+    const { slug } = useParams();
     const [brandLanguages, setBrandLanguages] = useState([]);
+    
     useEffect(() => {
         const getBrandProgramLanguages = async () => {
             try {
@@ -20,35 +23,44 @@ const ProgramLanguages = () => {
         }
         getBrandProgramLanguages();
     }, []);
-  return (
-    <div className={styles.programLanguagesContainer}>
-        <div className={styles.programLanguagesContent}>
-         <div data-aos="fade-right">
-               <h2 className={styles.title}>Programming Languages</h2>
-        <p className={styles.description}>
-            Explore various programming languages and their unique features.
-        </p>
-         </div>
-        <div data-aos="flip-up" className={styles.languagesList}>
-         {
-            brandLanguages.map((brand) => (
-                        <div key={brand.id || brand._id} className={styles.brandCard}>
-                          <img 
+
+    const handleSctrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    return (
+        <div className={styles.programLanguagesContainer}>
+            <div className={styles.programLanguagesContent}>
+                <div data-aos="fade-right">
+                    <h2 className={styles.title}>Programming Languages</h2>
+                    <p className={styles.description}>
+                        Explore various programming languages and their unique features.
+                    </p>
+                </div>
+                <div  className={styles.languagesList}>
+                    {
+                        brandLanguages.map((brand) => (
+                            <div data-aos="flip-up" key={brand.id || brand._id} className={styles.brandCard}>
+                                <img 
                                     src={brand.logoBrand} 
                                     alt={brand.nameBrand} 
                                     className={styles.brandImage}
                                 /> 
-                            <h3>{brand.nameBrand}</h3>
+                                <h3>{brand.nameBrand}</h3>
                                 <p>Awesome for beginners</p>
-                            <Link>Explore</Link>
-                        </div>
-            ))
-        }
+                                
+                                <Link to={`/category/${brand.slug}`} className={styles.exploreLink} onClick={handleSctrollToTop}>
+                                    Explore
+                                </Link>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
         </div>
-
-        </div>
-    </div>
-  )
+    )
 }
 
 export default ProgramLanguages

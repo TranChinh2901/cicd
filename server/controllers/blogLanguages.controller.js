@@ -10,16 +10,11 @@ const createBlogLanguagesController = async (req, res) => {
             })
         }
         const newBlogLanguage = {
-            title: title.trim(),
-            content: content.trim(),
-            image: image.trim()
+            title,
+            content,
+            image
         };
-        if(newBlogLanguage) {
-            return res.status(400).json({
-                success: false,
-                message: 'Blog language already exists'
-            });
-        }
+      
         const blogLanguage = await blogLanguagesModel.create(newBlogLanguage);
         return res.status(201).json({
             success: true,

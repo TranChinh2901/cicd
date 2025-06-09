@@ -8,15 +8,17 @@ import PublicRoute from "./Router/PublicRoute";
 import UserRoute from "./Router/UserRoute";
 import AdminRoute from "./Router/AdminRoute";
 import Profile from "./pages/Profile/Profile";
+import CategoryLanguages from "./pages/ProgramLanguages/CategoryLanguages/CategoryLanguages";
+import MainBlogLanguages from "./pages/ProgramLanguages/CategoryLanguages/BlogLanguages/MainBlogLanguages";
 const App = () => {
   return (
     <Router>
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
-     
-        
-        {/* Authentication Routes */}
+        <Route path="/category/:slug" element={<CategoryLanguages />} />
+        <Route path="/blog/:id" element={<MainBlogLanguages />} />
+
         <Route 
           path="/login" 
           element={
