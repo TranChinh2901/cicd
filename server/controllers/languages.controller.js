@@ -160,81 +160,34 @@ const countLanguagesController = async (req, res) => {
         });
     }
 }
-// ...existing code...
-
-const getLanguagesByCategoryController = async (req, res) => {
+const getLanguagesBySlugCategoryController = async (req, res) => { 
     try {
-        const { brandSlug, categoryId } = req.params;
-        
-        // Find brand by slug
-        const BrandLanguages = require("../models/brandLanguages.model");
-        const brand = await BrandLanguages.findOne({ slug: brandSlug });
-        
-        if (!brand) {
+        const { slug } = req.params;
+        const languages = await languagesModel.find({ categoryLanguages: slug })
+            .populate('categoryLanguages', 'nameC')
+            .populate('brandLanguages', 'nameBrand');
+        if (!languages || languages.length === 0) {
             return res.status(404).json({
                 success: false,
-                message: "Không tìm thấy thương hiệu"
+                message: 'No languages found for this category'
             });
         }
-
-        // Find category by ID or slug
-        const CategoryLanguages = require("../models/categoryLanguages.model");
-        const category = await CategoryLanguages.findOne({
-            $or: [
-                { _id: categoryId },
-                { slug: categoryId }
-            ]
-        });
-        
-        if (!category) {
-            return res.status(404).json({
-                success: false,
-                message: "Không tìm thấy danh mục"
-            });
-        }
-
-        // Find languages by brand and category
-        const Languages = require("../models/languages.model");
-        const languages = await Languages.find({
-            brandLanguages: brand._id,
-            categoryLanguages: category._id
-        })
-        .populate('brandLanguages', 'nameBrand logoBrand slug')
-        .populate('categoryLanguages', 'nameC imageC descriptionC slug')
-        .sort({ createdAt: -1 }); // Sort by newest first
-
         return res.status(200).json({
             success: true,
-            message: `Tìm thấy ${languages.length} ngôn ngữ lập trình`,
-            data: {
-                languages,
-                brand: {
-                    name: brand.nameBrand,
-                    logo: brand.logoBrand,
-                    slug: brand.slug
-                },
-                category: {
-                    name: category.nameC,
-                    image: category.imageC,
-                    description: category.descriptionC,
-                    slug: category.slug
-                }
-            },
-            count: languages.length
+            message: 'Languages fetched successfully',
+            data: languages
         });
-    } catch (error) {
-        console.error("Error in getLanguagesByCategoryController:", error);
+    }
+    catch (error) {
         return res.status(500).json({
             success: false,
-            message: "Lỗi khi lấy danh sách ngôn ngữ",
+            message: 'Error fetching languages by category',
             error: error.message
         });
     }
-};
+}
 
 
-
-// ...existing code...
  module.exports = {
         createLanguagesController,
         getAllLanguagesController,
@@ -242,5 +195,5 @@ const getLanguagesByCategoryController = async (req, res) => {
         updateLanguagesController,
         deleteLanguagesController,
         countLanguagesController,
-        getLanguagesByCategoryController
+        getLanguagesBySlugCategoryController
     }

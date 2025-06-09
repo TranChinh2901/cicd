@@ -10,6 +10,7 @@ import AdminRoute from "./Router/AdminRoute";
 import Profile from "./pages/Profile/Profile";
 import CategoryLanguages from "./pages/ProgramLanguages/CategoryLanguages/CategoryLanguages";
 import MainBlogLanguages from "./pages/ProgramLanguages/CategoryLanguages/BlogLanguages/MainBlogLanguages";
+import Languages from "./pages/ProgramLanguages/CategoryLanguages/Languages/Languages";
 const App = () => {
   return (
     <Router>
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/category/:slug" element={<CategoryLanguages />} />
         <Route path="/blog/:id" element={<MainBlogLanguages />} />
 
+  <Route path="/languages/:slug" element={<Languages />} />
         <Route 
           path="/login" 
           element={
