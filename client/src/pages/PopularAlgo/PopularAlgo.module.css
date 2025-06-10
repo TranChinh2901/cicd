@@ -1,0 +1,116 @@
+.containerPopularAlgo{
+    margin-top: 160px;
+}
+.containerPopularAlgo h2{font-weight: bold;
+    color: #333;
+    font-size: 1.5rem;
+}
+.listPopular{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.popularItems{
+    margin-top: 15px;
+    cursor: pointer;
+    flex: 1;
+   width: 100%;
+   background-color: white;
+   border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.popularItems ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.popularItems li{
+    line-height: 1.9;
+    color: #586069;
+}
+.iconPopularAlgo{
+    font-size: 45px;
+    margin-right: 10px;
+    vertical-align: middle;
+      color: #0366D6;
+}
+.titlePopularAlgo{
+    font-size: 19px;
+    margin-bottom: 10px;
+    font-weight: bold;
+      color: #333 !important;
+}
+.buttonPopular{
+  width: 100%;
+  margin-top: 8px;
+    background-color:#0366D6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+}
+.buttonPopular .linkPopular {
+     color: white;
+     text-decoration: none;
+}
+
+@media (max-width: 768px) {
+   .containerPopularAlgo{
+    margin-top: 80px;
+}
+.containerPopularAlgo h2{
+    font-weight: bold;
+    color: #333;
+    font-size: 1.3rem;
+}
+.containerPopularAlgo p{
+    font-size: 0.9rem;
+}
+.popularItems{
+    margin-top: 10px;
+    padding: 15px;
+}
+.popularItems li{
+    line-height: 1.7;
+    color: #586069;
+}
+.iconPopularAlgo{
+    font-size: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+      color: #0366D6;
+}
+.titlePopularAlgo{
+    font-size: 19px;
+    margin-bottom: 10px;
+    font-weight: bold;
+      color: #333 !important;
+}
+}
+@media (max-width: 480px) {
+   .containerPopularAlgo{
+    margin-top: 70px;
+}
+.containerPopularAlgo h2{font-weight: bold;
+    color: #333;
+    font-size: 1.2rem;
+}
+.containerPopularAlgo p{
+    font-size: 1rem;
+}
+.popularItems{
+    margin-top: 8px;
+    padding: 10px;
+}
+.popularItems li{
+    line-height: 1.6;
+}
+.iconPopularAlgo{
+    font-size: 30px;
+}
+.titlePopularAlgo{
+    font-size: 19px;
+}
+}

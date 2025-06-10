@@ -72,10 +72,19 @@
     .brandCard {
         width: calc(50% - 20px);
     }
+    .programLanguagesContainer{
+    margin-top: 100px;
+    max-width: 1200px;
+    width: 100%;
 }
-
+}
 @media (max-width: 480px) {
     .brandCard {
         width: 100%;
     }
+    .programLanguagesContainer{
+    margin-top: 80px;
+    max-width: 1200px;
+    width: 100%;
+}
 }

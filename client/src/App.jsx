@@ -11,6 +11,7 @@ import Profile from "./pages/Profile/Profile";
 import CategoryLanguages from "./pages/ProgramLanguages/CategoryLanguages/CategoryLanguages";
 import MainBlogLanguages from "./pages/ProgramLanguages/CategoryLanguages/BlogLanguages/MainBlogLanguages";
 import Languages from "./pages/ProgramLanguages/CategoryLanguages/Languages/Languages";
+import DetailLanguages from "./pages/ProgramLanguages/CategoryLanguages/Languages/DetailLanguages/DetailLanguages";
 const App = () => {
   return (
     <Router>
@@ -19,8 +20,8 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/category/:slug" element={<CategoryLanguages />} />
         <Route path="/blog/:id" element={<MainBlogLanguages />} />
-
-  <Route path="/languages/by-category/:slug" element={<Languages />} />
+        <Route path="/languages/by-category/:slug" element={<Languages />} />
+        <Route path="/language_detail/:slug" element={<DetailLanguages />} />
         <Route 
           path="/login" 
           element={

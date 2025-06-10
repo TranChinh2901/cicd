@@ -49,9 +49,9 @@ const Languages = () => {
     <div className={styles.languageContent}>
      
       <p className={styles.languageDescription}>
-        {lang.description.substring(0, 200)}...
+        {lang.description.substring(0, 180)}...
       </p>
-      <Link to={`/language/${lang.slug}`} className={styles.detailButton}>
+      <Link to={`/language_detail/${lang.slug}`} className={styles.detailButton}>
         Xem chi tiết taị đây<MdOutlineNavigateNext />
       </Link>
     </div>

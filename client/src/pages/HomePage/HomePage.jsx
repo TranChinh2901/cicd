@@ -6,6 +6,7 @@ import AOS from 'aos';
 import { useEffect } from 'react';
 import AboutPage from '../AboutPage/AboutPage';
 import ProgramLanguages from '../ProgramLanguages/ProgramLanguages';
+import PopularAlgo from '../PopularAlgo/PopularAlgo';
 
 const HomePage = () => {
    useEffect(() => {
@@ -55,6 +56,7 @@ const HomePage = () => {
         </div>
         <AboutPage/>
         <ProgramLanguages/>
+        <PopularAlgo/>
        </div>
     </Layout>
   )
