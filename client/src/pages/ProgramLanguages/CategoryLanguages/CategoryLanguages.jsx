@@ -63,7 +63,7 @@ const CategoryLanguages = () => {
 
   }
   
-  return (
+  return (  
    <Layout>
      <div className={styles.containerCategory}>
         <div className={styles.flexCategoryOne} >
@@ -74,7 +74,7 @@ const CategoryLanguages = () => {
       <div className={styles.categoriesGrid}>
        {
         categories.map((category) => (
-            <Link key={category._id} className={styles.categoryCard} onClick={handleClickToLanguages} style={{ textDecoration: 'none' }} to={`/languages/${category.slug}`}>
+            <Link key={category._id} className={styles.categoryCard} onClick={handleClickToLanguages} style={{ textDecoration: 'none' }} to={`/languages/by-category/${category.slug}`}>
               <div className={styles.categoryImageWrapper}>
                 <img 
                   src={category.imageC} 

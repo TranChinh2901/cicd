@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/category/:slug" element={<CategoryLanguages />} />
         <Route path="/blog/:id" element={<MainBlogLanguages />} />
 
-  <Route path="/languages/:slug" element={<Languages />} />
+  <Route path="/languages/by-category/:slug" element={<Languages />} />
         <Route 
           path="/login" 
           element={

@@ -78,8 +78,9 @@ const AboutPage = () => {
                 }).catch(error => console.error("Error fetching brands count:", error)),
                 
                 axios.get(`${API_URL}/api/v1/language/count-languages`).then(response => {
+                    //  console.log("Languages count response:", response.data);
                     if (response.data.success) {
-                        setCountLanguages(typeof response.data.data === 'object' ? response.data.data.count || 0 : response.data.data);
+                        setCountLanguages(response.data.count);
                     }
                 }).catch(error => console.error("Error fetching languages count:", error)),
                 
@@ -93,7 +94,6 @@ const AboutPage = () => {
             console.error("General error fetching counts:", error);
         }
     };
-    
     return (
         <div className={styles.containerAbout}>
             <div className={styles.inContainerAbout}>       
