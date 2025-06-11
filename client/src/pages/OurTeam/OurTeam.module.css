@@ -1,0 +1,27 @@
+.ourTeamContainer h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+.iconGithub{
+    font-size: 22px;
+    cursor: pointer;
+    margin-top:15px
+}
+.linkGithub{
+    text-decoration: none;
+    color: #333;
+    
+}
+.checkrole{
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+   .ourTeamContainer h2{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+}

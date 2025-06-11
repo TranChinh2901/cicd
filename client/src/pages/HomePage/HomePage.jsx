@@ -7,6 +7,9 @@ import { useEffect } from 'react';
 import AboutPage from '../AboutPage/AboutPage';
 import ProgramLanguages from '../ProgramLanguages/ProgramLanguages';
 import PopularAlgo from '../PopularAlgo/PopularAlgo';
+import HowToContribute from '../HowToContribute/HowToContribute';
+import JoinOurCommunity from '../JoinOurCommunity/JoinOurCommunity';
+import OurTeam from '../OurTeam/OurTeam';
 
 const HomePage = () => {
    useEffect(() => {
@@ -57,6 +60,9 @@ const HomePage = () => {
         <AboutPage/>
         <ProgramLanguages/>
         <PopularAlgo/>
+        <HowToContribute/>
+        <JoinOurCommunity/>
+        <OurTeam/>
        </div>
     </Layout>
   )

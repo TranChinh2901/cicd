@@ -176,14 +176,17 @@
         font-size: 0.9rem;
     }
 }
-
+.aboutDescription{
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
 @media screen and (max-width: 480px) {
     .containerAbout {
         margin-top: 50px;
     }
     .inContainerAbout h2 {
         margin-left: 5px;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     .aboutBox {
         padding: 15px;
@@ -211,4 +214,9 @@
         width: 100%;
         padding: 10px;
     }
+    .aboutDescription{
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+    
 }

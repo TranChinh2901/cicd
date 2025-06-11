@@ -110,12 +110,12 @@ const Header = () => {
                                             </button>
                                         </li>
                                     </ul>
-                                )}
+                                    )}
                             </div>
                         ) : (
                             <Link to="/login" className={`${styles.btn} ${styles.btnDiscord}`}>
                                 <MdLogin style={{fontSize: '17px'}}/>
-                                <span style={{fontSize: '17px'}}> Login</span>
+                                <span style={{fontSize: '17px'}}> Join our Team</span>
                             </Link>
                         )}
                         
@@ -148,8 +148,7 @@ const Header = () => {
                                 )}
                             </li>
                             <li><Link to="/community">Community</Link></li>
-                            <li><Link to="/team">Team</Link></li>
-                            
+                            <li><Link to="/team">Team</Link></li>       
                             {auth?.user ? (
                                 <>
                                     <li className={styles.liMobile}>
@@ -177,7 +176,7 @@ const Header = () => {
                                 <li className={styles.liMobile}>
                                     <Link to="/login" className={`${styles.btn} ${styles.btnDiscord}`}>
                                         <MdLogin style={{fontSize: '16px', color:'white'}}/>
-                                        <span style={{fontSize: '17px', color:'white'}}> Login</span>
+                                        <span style={{fontSize: '17px', color:'white'}}> Join our Team</span>
                                     </Link>
                                 </li>
                             )}

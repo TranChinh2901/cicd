@@ -11,8 +11,15 @@ import {
     message,
     Select
 } from 'antd';
-import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
+import { 
+    UserOutlined, 
+    LockOutlined, 
+    MailOutlined, 
+    PhoneOutlined,
+    GithubOutlined // Import icon GitHub
+} from '@ant-design/icons';
 import toast from 'react-hot-toast';
+
 const API_URL = import.meta.env.VITE_API;
 const { Title } = Typography;
 
@@ -25,16 +32,17 @@ const Register = () => {
         setLoading(true);
 
         try {
-            // const response = await axios.post('http://localhost:3000/api/v1/auth/register', values);
-           const response = await axios.post(`${API_URL}/api/v1/auth/register`, values);
+            const response = await axios.post(`${API_URL}/api/v1/auth/register`, values);
             
             if (response.data.success) {
                 toast.success('Đăng ký thành công!');
                 navigate('/login');
             }
         } catch (error) {
-            message.error(error.response?.data?.message || 'Đăng ký thất bại');
-            toast.error(error.response?.data?.message || 'Đăng ký thất bại');
+            // Sử dụng message.error và toast.error để hiển thị thông báo lỗi
+            const errorMessage = error.response?.data?.message || 'Đăng ký thất bại';
+            message.error(errorMessage);
+            toast.error(errorMessage);
         } finally {
             setLoading(false);
         }
@@ -60,7 +68,7 @@ const Register = () => {
                     >
                         <Form.Item
                             name="name"
-                            label="Full Name"
+                            label="Họ và tên" // Đã đổi sang tiếng Việt cho nhất quán
                             rules={[
                                 { required: true, message: 'Vui lòng nhập họ và tên!' },
                                 { min: 2, message: 'Họ và tên phải có ít nhất 2 ký tự!' }
@@ -85,7 +93,8 @@ const Register = () => {
                                 placeholder="Nhập email"
                             />
                         </Form.Item>
-   <Form.Item
+
+                        <Form.Item
                             name="password"
                             label="Mật khẩu"
                             rules={[
@@ -112,7 +121,8 @@ const Register = () => {
                                 placeholder="Nhập số điện thoại"
                             />
                         </Form.Item>
- <Form.Item
+
+                        <Form.Item
                             name="gender"
                             label="Giới tính"
                             rules={[
@@ -125,6 +135,7 @@ const Register = () => {
                                 <Select.Option value="Khác">Khác</Select.Option>
                             </Select>
                         </Form.Item>
+
                         <Form.Item
                             name="address"
                             label="Địa chỉ"
@@ -138,9 +149,22 @@ const Register = () => {
                             />
                         </Form.Item>
 
-                     
+                        <Form.Item
+                            name="github" 
+                            label="Link GitHub (tùy chọn)"
+                            rules={[
+                                { 
+                                    pattern: /^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9_-]+(\/[a-zA-Z0-9_-]+)*\/?$/, 
+                                    message: 'Link GitHub không hợp lệ!' 
+                                }
+                            ]}
+                        >
+                            <Input
+                                prefix={<GithubOutlined />} 
+                                placeholder="Nhập link GitHub của bạn (ví dụ: https://github.com/yourusername)"
+                            />
+                        </Form.Item>
                       
-
                         <Form.Item>
                             <Button
                                 type="primary"

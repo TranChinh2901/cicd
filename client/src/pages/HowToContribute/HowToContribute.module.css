@@ -1,0 +1,136 @@
+
+
+.containerContribute {
+    width: 100%;
+    margin-top: 160px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.containerContribute h2 {
+    font-weight: 600; 
+    color: #333;
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+}
+
+.flexContribute {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 24px; 
+    max-width: 1120px; 
+    margin: 0 auto;
+}
+
+.itemsContribute {
+    cursor: pointer;
+    flex: 1;
+    min-width: 240px; 
+    max-width: calc(25% - 18px); 
+    background-color: #f2f6fa; 
+    border-radius: 6px; 
+    padding: 28px; 
+    /* border: 1px solid #eee;  */
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);  */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* .itemsContribute:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); 
+} */
+
+.itemsContribute h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600; 
+    color: #333 !important;
+}
+
+.itemsContribute p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666; 
+}
+
+.iconContribute {
+    font-size: 50px; 
+    margin-bottom: 12px;
+    color: #007bff; 
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .containerContribute {
+        margin-top: 80px;
+    }
+    .containerContribute h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    .flexContribute {
+        gap: 20px;
+    }
+    .itemsContribute {
+        max-width: calc(50% - 10px); 
+        padding: 25px;
+    }
+    .itemsContribute h3 {
+        font-size: 18px;
+    }
+    .itemsContribute p {
+        font-size: 14px;
+    }
+    .iconContribute {
+        font-size: 45px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .containerContribute {
+        margin-top: 60px;
+        padding: 15px;
+    }
+    .containerContribute h2 {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+    }
+    .flexContribute {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .itemsContribute {
+        max-width: 100%;
+        padding: 20px;
+    }
+    .itemsContribute h3 {
+        font-size: 17px;
+    }
+    .itemsContribute p {
+        font-size: 13px;
+    }
+    .iconContribute {
+        font-size: 40px;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .containerContribute h2 {
+        font-size: 1.3rem;
+    }
+    .itemsContribute {
+        padding: 15px;
+    }
+    .iconContribute {
+    font-size: 35px; 
+}
+}

@@ -4,8 +4,8 @@ const JWT = require('jsonwebtoken');
 
 const registerController = async (req, res) => {
     try {
-        const { name, email, password, phone, address, gender } = req.body;
-        if (!name || !email || !password || !phone || !address || !gender) {
+        const { name, email, password, phone, address, gender, github } = req.body;
+        if (!name || !email || !password || !phone || !address || !gender || !github) {
             return res.status(400).json({
                 success: false,
                 message: 'Bắt buộc phải nhập đầy đủ thông tin'
@@ -25,7 +25,8 @@ const registerController = async (req, res) => {
             phone,
             address,
             password: hashedPassword,
-            gender
+            gender,
+            github
         }).save();
         res.status(201).json({
             success: true,

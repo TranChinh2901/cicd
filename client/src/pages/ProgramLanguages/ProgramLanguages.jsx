@@ -34,7 +34,7 @@ const ProgramLanguages = () => {
         <div className={styles.programLanguagesContainer}>
             <div className={styles.programLanguagesContent}>
                 <div data-aos="fade-right">
-                    <h2 className={styles.title}>Programming Languages</h2>
+                    <h2 >Programming Languages</h2>
                     <p className={styles.description}>
                         Explore various programming languages and their unique features.
                     </p>

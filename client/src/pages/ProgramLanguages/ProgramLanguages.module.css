@@ -77,6 +77,10 @@
     max-width: 1200px;
     width: 100%;
 }
+.programLanguagesContent h2{
+  
+    font-size: 1.2rem;
+}
 }
 @media (max-width: 480px) {
     .brandCard {
@@ -86,5 +90,9 @@
     margin-top: 80px;
     max-width: 1200px;
     width: 100%;
+}
+.programLanguagesContent h2{
+  
+    font-size: 1.2rem;
 }
 }
