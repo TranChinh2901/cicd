@@ -12,6 +12,7 @@ import CategoryLanguages from "./pages/ProgramLanguages/CategoryLanguages/Catego
 import MainBlogLanguages from "./pages/ProgramLanguages/CategoryLanguages/BlogLanguages/MainBlogLanguages";
 import Languages from "./pages/ProgramLanguages/CategoryLanguages/Languages/Languages";
 import DetailLanguages from "./pages/ProgramLanguages/CategoryLanguages/Languages/DetailLanguages/DetailLanguages";
+import ViewTeam from "./pages/JoinOurCommunity/ViewTeam/ViewTeam";
 const App = () => {
   return (
     <Router>
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/blog/:id" element={<MainBlogLanguages />} />
         <Route path="/languages/by-category/:slug" element={<Languages />} />
         <Route path="/language_detail/:slug" element={<DetailLanguages />} />
+        <Route path="/view-members" element={<ViewTeam/>}/>
         <Route 
           path="/login" 
           element={

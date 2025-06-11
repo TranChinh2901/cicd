@@ -57,12 +57,24 @@ const HomePage = () => {
             </a>
           </div>
         </div>
-        <AboutPage/>
-        <ProgramLanguages/>
-        <PopularAlgo/>
+        <section id="about-section">
+          <AboutPage />
+        </section>
+        <section id="languages-section">
+          <ProgramLanguages />
+        </section>
+        <section id="algorithms-section">
+          <PopularAlgo/>
+        </section>
+        <section id="contribute-section">
         <HowToContribute/>
-        <JoinOurCommunity/>
+        </section>
+        <section id="community-section">
+          <JoinOurCommunity/>
+        </section>
+        <section id="team-section">
         <OurTeam/>
+        </section>
        </div>
     </Layout>
   )

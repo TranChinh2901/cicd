@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { IoMdMail } from "react-icons/io";
+import { Image } from 'antd';
 const JoinOurCommunity = () => {
   return (
     <div className={styles.JoinOurCommunityContainer}>
@@ -34,11 +35,10 @@ const JoinOurCommunity = () => {
                 </a>
             </div>
             <div className={styles.rightCommunity} data-aos="flip-left">
-                <img src={groupImage} alt="Community group" />
+                <Image src={groupImage} alt="Community group" />
             </div>
         </div>
     </div>
   )
 }
-
 export default JoinOurCommunity

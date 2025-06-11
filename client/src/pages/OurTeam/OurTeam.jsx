@@ -3,6 +3,9 @@ import axios from 'axios';
 import styles from './OurTeam.module.css';
 const API_URL = import.meta.env.VITE_API;
 import { FaGithub } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { GrLinkNext } from "react-icons/gr";
+
 const OurTeam = () => {
    const [users, setUsers] = useState([]);
     useEffect(() => {
@@ -63,7 +66,8 @@ const OurTeam = () => {
                 </div>
             ))}
         </div>
-        </div>
+            <Link to="/view-members" className={styles.nextToView}>View All Team Members<GrLinkNext/> </Link>
+        </div>  
     );
 }
 

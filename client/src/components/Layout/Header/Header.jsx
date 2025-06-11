@@ -36,17 +36,45 @@ const Header = () => {
         navigate('/');
     };
 
-    const handleSrollTop = () => {
+    const handleScrollTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
-    }
+    };
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'nearest'
+            });
+        }
+    };
+
+    const handleNavClick = (e, path, sectionId = null) => {
+        e.preventDefault();
+        if (sectionId) {
+            if (window.location.pathname === '/') {
+                scrollToSection(sectionId);
+            } else {
+                navigate('/');
+                setTimeout(() => {
+                    scrollToSection(sectionId);
+                }, 100);
+            }
+        } else {
+            navigate(path);
+        }
+    };
+
     return (
         <header className={styles.header}>
             <div className={styles.container}>
                 <nav className={styles.nav}>
-                    <Link to="/" className={styles.logo} onClick={handleSrollTop}>
+                    <Link to="/" className={styles.logo} onClick={handleScrollTop}>
                         <div className={styles.logoIcon}>
                             <img src="https://the-algorithms.com/images/logo.svg" alt="" />
                         </div>
@@ -54,25 +82,67 @@ const Header = () => {
                     </Link>
 
                     <ul className={styles.desktopNav}>
-                        <li><Link to="/about">About</Link></li>
+                        <li>
+                            <Link 
+                                to="/" 
+                                onClick={(e) => handleNavClick(e, '/about', 'about-section')}
+                            >
+                                About
+                            </Link>
+                        </li>
                         <li 
                             className={styles.dropdownContainer}
                             onMouseEnter={() => setIsDesktopDropdownOpen(true)}
                             onMouseLeave={() => setIsDesktopDropdownOpen(false)}
                         >
-                            <Link to="/resources" className={styles.dropdownLink}>
+                            <Link to="/" className={styles.dropdownLink}>
                                 Resources <FaChevronDown size={12} />
                             </Link>
                             {isDesktopDropdownOpen && (
                                 <ul className={styles.dropdownMenu}>
-                                    <li><Link to="/resources/languages">Programming Languages</Link></li>
-                                    <li><Link to="/resources/algorithms">Algorithms</Link></li>
-                                    <li><Link to="/resources/contribute">How to Contribute</Link></li>
+                                    <li>
+                                        <Link 
+                                            to="/"
+                                            onClick={(e) => handleNavClick(e, '/resources/languages', 'languages-section')}
+                                        >
+                                            Programming Languages
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link 
+                                            to="/"
+                                            onClick={(e) => handleNavClick(e, '/resources/algorithms', 'algorithms-section')}
+                                        >
+                                            Algorithms
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link 
+                                            to="/"
+                                            onClick={(e) => handleNavClick(e, '/resources/contribute', 'contribute-section')}
+                                        >
+                                            How to Contribute
+                                        </Link>
+                                    </li>
                                 </ul>
                             )}
                         </li>
-                        <li><Link to="/community">Community</Link></li>
-                        <li><Link to="/team">Team</Link></li>
+                        <li>
+                            <Link 
+                                to="/"
+                                onClick={(e) => handleNavClick(e, '/community', 'community-section')}
+                            >
+                                Community
+                            </Link>
+                        </li>
+                        <li>
+                            <Link 
+                                to="/"
+                                onClick={(e) => handleNavClick(e, '/team', 'team-section')}
+                            >
+                                Team
+                            </Link>
+                        </li>
                     </ul>
 
                     <div className={styles.desktopActions}>
@@ -84,7 +154,7 @@ const Header = () => {
                             >
                                 <button className={styles.userButton}>
                                     <FaUser size={16} />
-                                    <span>{auth.user.name}</span>
+                                    <span> {auth.user.name}</span>
                                     <FaChevronDown size={12} />
                                 </button>
                                 {isUserDropdownOpen && (
@@ -133,7 +203,17 @@ const Header = () => {
                 {isMenuOpen && (
                     <div className={styles.mobileMenu}>
                         <ul className={styles.mobileNavLinks}>
-                            <li><Link to="/about">About</Link></li>
+                            <li>
+                                <Link 
+                                    to="/about"
+                                    onClick={(e) => {
+                                        handleNavClick(e, '/about', 'about-section');
+                                        setIsMenuOpen(false);
+                                    }}
+                                >
+                                    About
+                                </Link>
+                            </li>
                             <li className={styles.mobileDropdownContainer}>
                                 <button onClick={toggleMobileResources} className={styles.mobileDropdownToggle}>
                                     <span>Resources</span>
@@ -141,14 +221,64 @@ const Header = () => {
                                 </button>
                                 {isMobileResourcesOpen && (
                                     <ul className={styles.mobileSubMenu}>
-                                        <li><Link to="/resources/languages">Programming Languages</Link></li>
-                                        <li><Link to="/resources/algorithms">Algorithms</Link></li>
-                                        <li><Link to="/resources/contribute">How to Contribute</Link></li>
+                                        <li>
+                                            <Link 
+                                                to="/"
+                                                onClick={(e) => {
+                                                    handleNavClick(e, '/resources/languages', 'languages-section');
+                                                    setIsMenuOpen(false);
+                                                }}
+                                            >
+                                                Programming Languages
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link 
+                                                to="/"
+                                                onClick={(e) => {
+                                                    handleNavClick(e, '/resources/algorithms', 'algorithms-section');
+                                                    setIsMenuOpen(false);
+                                                }}
+                                            >
+                                                Algorithms
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link 
+                                                to="/"
+                                                onClick={(e) => {
+                                                    handleNavClick(e, '/resources/contribute', 'contribute-section');
+                                                    setIsMenuOpen(false);
+                                                }}
+                                            >
+                                                How to Contribute
+                                            </Link>
+                                        </li>
                                     </ul>
                                 )}
                             </li>
-                            <li><Link to="/community">Community</Link></li>
-                            <li><Link to="/team">Team</Link></li>       
+                            <li>
+                                <Link 
+                                    to="/"
+                                    onClick={(e) => {
+                                        handleNavClick(e, '/community', 'community-section');
+                                        setIsMenuOpen(false);
+                                    }}
+                                >
+                                    Community
+                                </Link>
+                            </li>
+                            <li>
+                                <Link 
+                                    to="/"
+                                    onClick={(e) => {
+                                        handleNavClick(e, '/team', 'team-section');
+                                        setIsMenuOpen(false);
+                                    }}
+                                >
+                                    Team
+                                </Link>
+                            </li>       
                             {auth?.user ? (
                                 <>
                                     <li className={styles.liMobile}>
