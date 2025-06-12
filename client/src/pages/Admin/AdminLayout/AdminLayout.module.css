@@ -1,0 +1,78 @@
+.adminLayout {
+  min-height: 100vh;
+}
+
+.sider {
+  background: #001529 !important;
+}
+
+.logo {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.logo img {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+}
+
+.menu {
+  border-right: none;
+}
+
+.header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.userInfo {
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.userInfo:hover {
+  color: #1890ff;
+}
+
+.content {
+  overflow-y: auto;
+  max-height: calc(100vh - 112px);
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    padding: 0 16px;
+  }
+  
+  .trigger {
+    padding: 0 16px;
+  }
+}

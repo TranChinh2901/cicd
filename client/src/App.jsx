@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
@@ -13,55 +12,62 @@ import MainBlogLanguages from "./pages/ProgramLanguages/CategoryLanguages/BlogLa
 import Languages from "./pages/ProgramLanguages/CategoryLanguages/Languages/Languages";
 import DetailLanguages from "./pages/ProgramLanguages/CategoryLanguages/Languages/DetailLanguages/DetailLanguages";
 import ViewTeam from "./pages/JoinOurCommunity/ViewTeam/ViewTeam";
+import AdminLayout from "./pages/Admin/AdminLayout/AdminLayout";
+import Dashboard from "./pages/Admin/DashBoard/DashBoard";
+import NotFound from "./pages/Admin/NotFound/NotFound";
+
+
+
 const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/category/:slug" element={<CategoryLanguages />} />
         <Route path="/blog/:id" element={<MainBlogLanguages />} />
         <Route path="/languages/by-category/:slug" element={<Languages />} />
         <Route path="/language_detail/:slug" element={<DetailLanguages />} />
         <Route path="/view-members" element={<ViewTeam/>}/>
-        <Route 
-          path="/login" 
+        <Route
+          path="/login"
           element={
             <PublicRoute>
               <Login />
             </PublicRoute>
-          } 
+          }
         />
-        <Route 
-          path="/register" 
+        <Route
+          path="/register"
           element={
             <PublicRoute>
               <Register />
             </PublicRoute>
-          } 
+          }
         />
-        
-        {/* Protected User Routes */}
-        <Route 
-          path="/profile" 
+
+        <Route
+          path="/profile"
           element={
             <UserRoute>
               <Profile />
             </UserRoute>
-          } 
+          }
         />
-        
-        {/* Protected Admin Routes */}
-        <Route 
-          path="/admin/dashboard" 
+
+        <Route
+          path="/admin"
           element={
             <AdminRoute>
-              {/* <Dashboard /> */}
+              <AdminLayout/>
             </AdminRoute>
-          } 
-        />
-        
-        {/* Error & Utility Routes */}
+          }
+        >
+          <Route index element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
+         
+          <Route path="*" element={<NotFound />} />
+        </Route>
+
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
