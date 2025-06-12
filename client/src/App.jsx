@@ -15,6 +15,11 @@ import ViewTeam from "./pages/JoinOurCommunity/ViewTeam/ViewTeam";
 import AdminLayout from "./pages/Admin/AdminLayout/AdminLayout";
 import Dashboard from "./pages/Admin/DashBoard/DashBoard";
 import NotFound from "./pages/Admin/NotFound/NotFound";
+import BrandLanguages from "./pages/Admin/BrandLanguages/BrandLanguages";
+import CategoryLanguagesAdmin from "./pages/Admin/CategoryLanguages/CategoryLanguages";
+import LanguagesAdmin from "./pages/Admin/Languages/Languages";
+import BlogLanguagesAdmin from "./pages/Admin/BlogLanguages/BlogLanguages";
+import Users from "./pages/Admin/Users/Users";
 
 
 
@@ -64,7 +69,11 @@ const App = () => {
         >
           <Route index element={<Dashboard />} />
           <Route path="dashboard" element={<Dashboard />} />
-         
+          <Route path="users" element={<Users />} />
+          <Route path="brand-languages" element={<BrandLanguages />} />
+          <Route path="category-languages" element={<CategoryLanguagesAdmin />} />
+          <Route path="languages" element={<LanguagesAdmin />} />
+          <Route path="blog-languages" element={<BlogLanguagesAdmin />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 

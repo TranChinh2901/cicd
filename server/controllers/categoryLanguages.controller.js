@@ -3,8 +3,8 @@ const categoryLanguagesModel = require("../models/categoryLanguages.model");
 
 const createCategoryLanguageController = async (req, res) => {
     try {   
-        const {nameC, imageC, imageBannerC, descriptionC, brandLanguages} = req.body;
-        if (!nameC || !imageC || !imageBannerC || !descriptionC || !brandLanguages) {
+        const {nameC, imageC, descriptionC, brandLanguages} = req.body;
+        if (!nameC || !imageC  || !descriptionC || !brandLanguages) {
             return res.status(400).json({
                 success: false,
                 message: 'All fields are required'
@@ -22,7 +22,6 @@ const createCategoryLanguageController = async (req, res) => {
             nameC,
             slug,
             imageC,
-            imageBannerC,
             descriptionC,
             brandLanguages
         }).save();
@@ -73,7 +72,6 @@ const updateCategoryLanguageController = async (req, res) => {
                 nameC,
                 slug: slugify(nameC, { lower: true }),
                 imageC,
-                imageBannerC,
                 descriptionC,
                 brandLanguages
             },

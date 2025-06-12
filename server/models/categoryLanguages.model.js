@@ -16,10 +16,6 @@ const categoryLanguagesSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    imageBannerC: {
-        type: String,
-        required: true,
-    },
     descriptionC: {
         type: String,
         required: true,
