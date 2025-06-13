@@ -11,7 +11,7 @@ import {
   Card,
   Tag,
   Select,
-  Avatar, // Import lại Avatar cho view modal
+  Avatar, 
   Tooltip
 } from 'antd';
 import {
@@ -258,7 +258,7 @@ const LanguagesAdmin = () => {
           rowKey="_id"
           loading={loading}
           pagination={{
-            pageSize: 10,
+            pageSize: 7,
             showSizeChanger: true,
             showQuickJumper: true,
             showTotal: (total, range) =>
