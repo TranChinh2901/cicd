@@ -98,7 +98,7 @@ const CategoryLanguagesAdmin = () => {
         message.success('Cập nhật danh mục thành công');
       } else {
         // Create
-        await axios.post(`${API_URL}/api/v1/category/categoryLanguages`, payload);
+        await axios.post(`${API_URL}/api/v1/category/categoryLanguage`, payload);
         message.success('Tạo danh mục thành công');
       }
 
