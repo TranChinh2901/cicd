@@ -1,0 +1,128 @@
+.danhSachQL{
+    width: 100%;
+    /* background-color: grey;
+    align-items: center; */
+   border: 0.1px solid rgb(209, 208, 208);
+}
+.danhSachNGuoiDung{
+    width: 100%;
+    height: 40px;
+    background-color: rgb(223, 221, 221);
+    align-items: center;
+}
+.danhSachNGuoiDungIn{
+    padding-top: 7px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+.bangDanhSach{
+    padding: 5px 5px;
+
+}
+.buttonXoaND{
+    display: flex;
+    cursor: pointer;
+    /* width: 100%; */
+    /* text-align: center; */
+    margin-left: 20px;
+}
+
+.containerDashboard{
+    width: 100%;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.flexChiTiet{
+    display: flex;
+    flex-wrap: wrap;
+    /* text-align: center; */
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+}
+.chiTietLeft{
+    flex-wrap: wrap;
+    display: flex;
+    width: 40%;
+    background-color: rgb(245, 245, 245);
+}
+.chiTietRight{
+    flex-wrap: wrap;
+    display: flex;
+    width: 40%;
+    background-color: rgb(245, 245, 245);
+}
+.leftIcon{
+    text-align: center;
+    align-items: center;
+    font-size: 65px;
+    width: 25%;
+    background-color: green;
+    color: white;
+}
+.textLeft{
+width: 75%;
+margin-top: 20px;
+align-items: center;
+}
+.rightIcon{
+    text-align: center;
+    align-items: center;
+    font-size: 65px;
+    width: 130px;
+    height: 110px;
+    width: 25%;
+    background-color: rgb(158, 158, 1);
+    color: white;
+}
+.textRight{
+    margin-top: 20px;
+    width: 75%;
+align-items: center;    
+}
+
+.flexDuoi{
+    display: flex;
+    flex-wrap: wrap;
+    /* text-align: center; */
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+}
+.flexLeft{
+    width: 40%;
+    border: 1px solid rgb(224, 224, 224);
+    /* background-color: antiquewhite; */
+}
+.flexRight{
+    width: 40%;
+    border: 1px solid rgb(224, 224, 224);
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #dee2e6;
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table td {
+    font-size: 16px;
+}
+.table thead th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+/* .table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+} */

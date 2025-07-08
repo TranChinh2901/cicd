@@ -14,10 +14,10 @@ const app = express();
 
 // app.use(express.json())
 app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ limit: '50mb', extended: true }))
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(cors({
-     origin: '*'
+    origin: '*'
 }));
 app.use(morgan('dev'))
 
@@ -26,10 +26,12 @@ connectDB();
 const PORT = process.env.PORT || 3001;
 app.use('/api/v1/auth/', usersRouter);
 app.use('/api/v1/brand/', brandLanguagesRouter);
-app.use('/api/v1/category/',categoryLanguagesRouter);
+app.use('/api/v1/category/', categoryLanguagesRouter);
 app.use('/api/v1/language/', languagesRouter);
 app.use('/api/v1/blog/', blogLanguagesRouter)
-
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on http://0.0.0.0:${PORT}`);
     console.log(`Local: http://localhost:${PORT}`);

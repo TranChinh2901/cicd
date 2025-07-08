@@ -3,28 +3,28 @@ const brandLanguagesModel = require("../models/brandLanguages.model");
 
 const createBrandLanguage = async (req, res) => {
     try {
-        const {nameBrand, logoBrand} = req.body;
-        if(!nameBrand || !logoBrand) {
+        const { nameBrand, logoBrand } = req.body;
+        if (!nameBrand || !logoBrand) {
             return res.status(400).json({
                 success: false,
                 message: 'Name and logo are required'
             })
         }
-               const existingBrand = await brandLanguagesModel.findOne({ nameBrand });
-               if(existingBrand) {
-                return res.status(400).json({
-                    success: false,
-                    message: 'Brand da ton tai'
-                })
-               }
-               const newBrand = await new brandLanguagesModel(
-                {nameBrand, slug:slugify(nameBrand), logoBrand}
-               ).save();
-               return res.status(201).json({
-                   success: true,
-                   message: 'Tao brand language thanh cong',
-                   data: newBrand
-               })   
+        const existingBrand = await brandLanguagesModel.findOne({ nameBrand });
+        if (existingBrand) {
+            return res.status(400).json({
+                success: false,
+                message: 'Brand da ton tai'
+            })
+        }
+        const newBrand = await new brandLanguagesModel(
+            { nameBrand, slug: slugify(nameBrand), logoBrand }
+        ).save();
+        return res.status(201).json({
+            success: true,
+            message: 'Tao brand language thanh cong',
+            data: newBrand
+        })
     } catch (error) {
         return res.status(500).json({
             success: false,
@@ -36,7 +36,7 @@ const createBrandLanguage = async (req, res) => {
 const getBrandLanguages = async (req, res) => {
     try {
         const brandLanguages = await brandLanguagesModel.find({});
-         res.status(200).json({
+        res.status(200).json({
             success: true,
             message: 'Lay danh sach brand languages thanh cong',
             data: brandLanguages
@@ -51,9 +51,9 @@ const getBrandLanguages = async (req, res) => {
 }
 const getBrandLanguageBySlug = async (req, res) => {
     try {
-        const {slug} = req.params;
-        const brandLanguage = await brandLanguagesModel.findOne({slug});
-        if(!brandLanguage) {
+        const { slug } = req.params;
+        const brandLanguage = await brandLanguagesModel.findOne({ slug });
+        if (!brandLanguage) {
             return res.status(404).json({
                 success: false,
                 message: 'Brand language not found'
@@ -74,20 +74,26 @@ const getBrandLanguageBySlug = async (req, res) => {
 }
 const updateBrandLanguage = async (req, res) => {
     try {
-        const {slug} = req.params;
-        const {nameBrand, logoBrand} = req.body;
-        if(!nameBrand || !logoBrand) {
+        const { slug } = req.params;
+        const { nameBrand, logoBrand } = req.body;
+        if (!nameBrand || !logoBrand) {
             return res.status(400).json({
                 success: false,
                 message: 'Name and logo are required'
             })
         }
+        if (!slug) {
+            return res.status(400).json({
+                success: false,
+                message: 'Slug is required'
+            })
+        }
         const brandLanguage = await brandLanguagesModel.findOneAndUpdate(
-            {slug},
-            {nameBrand, logoBrand, slug: slugify(nameBrand)},
-            {new: true}
+            { slug },
+            { nameBrand, logoBrand, slug: slugify(nameBrand) },
+            { new: true }
         );
-        if(!brandLanguage) {
+        if (!brandLanguage) {
             return res.status(404).json({
                 success: false,
                 message: 'Brand language not found'
@@ -108,9 +114,9 @@ const updateBrandLanguage = async (req, res) => {
 }
 const deleteBrandLanguage = async (req, res) => {
     try {
-        const {slug} = req.params;
-        const deleteBrandLanguage = await brandLanguagesModel.findOneAndDelete({slug});
-        if(!deleteBrandLanguage) {
+        const { slug } = req.params;
+        const deleteBrandLanguage = await brandLanguagesModel.findOneAndDelete({ slug });
+        if (!deleteBrandLanguage) {
             return res.status(404).json({
                 success: false,
                 message: 'Brand language not found'

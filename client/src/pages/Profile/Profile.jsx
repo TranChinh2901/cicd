@@ -11,13 +11,13 @@ const Profile = () => {
     const user = auth?.user;
 
     return (
-        <Layout title="User Profile">
+        <Layout title="Stratos - User Profile" description="View and manage your user profile information.">
             <div style={{ maxWidth: '800px', margin: '20px auto', padding: '20px' }}>
                 <Card>
                     <Title level={2} style={{ textAlign: 'center', marginBottom: '24px' }}>
                         User Profile
                     </Title>
-                    
+
                     {user && (
                         <Descriptions bordered column={1}>
                             <Descriptions.Item label="Name">{user.name}</Descriptions.Item>

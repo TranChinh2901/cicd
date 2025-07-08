@@ -1,0 +1,132 @@
+.createBrandContainer {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.createBrandForm {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.formSection {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.sectionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formLabel {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 15px;
+}
+
+.formInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formInput:focus {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    outline: none;
+}
+
+.fileInput {
+    border: 2px dashed #b7b5b5;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #f0f8ff;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.fileInput:hover,
+.fileInput:focus {
+    border-color: #1890ff;
+    background-color: #e6f7ff;
+    outline: none;
+}
+
+.imagePreviewContainer {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.logoPreviewImage {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 2px solid #b7b5b5;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.submitButtonContainer {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.submitButton {
+    padding: 10px 25px;
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #40a9ff;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+}
+
+.submitButton:active {
+    background-color: #096dd9;
+}
+
+@media (max-width: 768px) {
+    .createBrandForm {
+        flex-direction: column;
+    }
+
+    .formSection {
+        width: 100%;
+    }
+}

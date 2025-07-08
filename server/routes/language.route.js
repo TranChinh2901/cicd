@@ -9,7 +9,6 @@
     router.put('/languages/:slug', requireSignIn, isAdmin, updateLanguagesController);
     router.delete('/languages/:slug', requireSignIn, isAdmin, deleteLanguagesController);
     router.get('/count-languages', countLanguagesController);
-    // THÊM route mới cho filter theo brand + category
     router.get('/category/:brandId/:categoryId', getLanguagesByCategoryController);
     router.get('/languages/by-category/:slug', getLanguagesBySlugCategoryController);
 

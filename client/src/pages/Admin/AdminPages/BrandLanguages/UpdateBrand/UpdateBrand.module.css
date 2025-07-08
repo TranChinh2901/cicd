@@ -1,0 +1,189 @@
+.updateBrandPage {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.pageTitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2.1em; /* Tăng cỡ chữ */
+    font-weight: bold;
+}
+
+.updateBrandForm {
+    display: flex;
+    flex-direction: column;
+    gap: 22px; /* Tăng khoảng cách một chút */
+    padding: 0 20px;
+}
+
+.formGroup {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.label {
+    display: block;
+    margin-bottom: 9px; /* Tăng khoảng cách */
+    font-weight: bold;
+    color: #444;
+    font-size: 1em; /* Tăng cỡ chữ */
+}
+
+.inputField {
+    width: 100%;
+    padding: 12px 14px; /* Tăng padding */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 1.05em; /* Tăng cỡ chữ */
+    color: #333;
+}
+
+.inputField::placeholder {
+    color: #999;
+}
+
+.inputField:focus {
+    outline: none;
+    border-color: #888;
+}
+
+.sectionTitle {
+    margin-top: 28px; /* Tăng khoảng cách */
+    margin-bottom: 18px; /* Tăng khoảng cách */
+    font-size: 1.3em; /* Tăng cỡ chữ */
+    color: #555;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.divider {
+    display: none;
+}
+
+.formGroupImage {
+    padding: 22px; /* Tăng padding */
+    background-color: #fefefe;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.fileInput {
+    display: block;
+    margin: 18px 0 22px 0; /* Tăng khoảng cách */
+    width: fit-content;
+    padding: 10px 15px; /* Tăng padding */
+    background-color: #f0f0f0;
+    color: #666;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.95em; /* Tăng cỡ chữ */
+}
+
+.fileInput:hover {
+    background-color: #e5e5e5;
+}
+
+.imagePreviewContainer {
+    margin-top: 22px; /* Tăng khoảng cách */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 150px; /* Tăng chiều cao tối thiểu */
+    border: 1px dashed #ccc;
+    border-radius: 3px;
+    background-color: #fafafa;
+    overflow: hidden;
+    padding-left: 12px; /* Tăng padding */
+}
+
+.imagePreview {
+    max-width: 85%; /* Tăng kích thước tối đa */
+    max-height: 130px; /* Tăng kích thước tối đa */
+    object-fit: contain;
+    border-radius: 3px;
+}
+
+.buttonContainer {
+    margin-top: 28px; /* Tăng khoảng cách */
+    text-align: right;
+    padding-right: 20px;
+}
+
+.submitButton {
+    padding: 12px 24px; /* Tăng padding */
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1.05em; /* Tăng cỡ chữ */
+    font-weight: bold;
+    min-width: 140px; /* Tăng chiều rộng tối thiểu */
+}
+
+.submitButton:hover {
+    background-color: #4cae4c;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px; /* Tăng chiều cao */
+    font-size: 1.2em; /* Tăng cỡ chữ */
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .updateBrandPage {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+    .pageTitle {
+        font-size: 1.8em;
+    }
+    .updateBrandForm {
+        padding: 0 10px;
+    }
+    .label {
+        font-size: 0.95em;
+    }
+    .inputField, .fileInput {
+        padding: 9px;
+        font-size: 0.95em;
+    }
+    .submitButton {
+        width: 100%;
+        padding: 11px;
+        font-size: 1em;
+    }
+    .buttonContainer {
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .updateBrandPage {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+    .pageTitle {
+        font-size: 1.5em;
+    }
+    .formGroupImage {
+        padding: 18px;
+    }
+}

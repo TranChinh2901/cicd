@@ -6,16 +6,12 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './context/AuthContext.jsx';
 import 'antd/dist/reset.css';
 
-
-
 createRoot(document.getElementById('root')).render(
   <AuthProvider>
-    
-        <StrictMode>
-          <App />
-          <Toaster />
-        </StrictMode>
-    
+    <StrictMode>
+      <App />
+      <Toaster />
+    </StrictMode>
   </AuthProvider>
 
 )

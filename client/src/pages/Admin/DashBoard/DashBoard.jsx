@@ -20,7 +20,7 @@ const API_URL = import.meta.env.VITE_API;
 
 const getNumericalValue = (response, defaultKey = 'data') => {
   if (!response || !response.data) {
-    return 0; 
+    return 0;
   }
 
   const responseData = response.data;
@@ -31,19 +31,19 @@ const getNumericalValue = (response, defaultKey = 'data') => {
 
   if (typeof responseData === 'object') {
     if (typeof responseData.data === 'number') {
-        return responseData.data;
+      return responseData.data;
     }
     if (typeof responseData.count === 'number') {
-        return responseData.count;
+      return responseData.count;
     }
     if (Array.isArray(responseData[defaultKey])) {
-        return responseData[defaultKey].length;
+      return responseData[defaultKey].length;
     }
     if (typeof responseData.data === 'object' && responseData.data !== null && 'count' in responseData.data) {
-        return responseData.data.count || 0; 
+      return responseData.data.count || 0;
     }
     if (typeof responseData.count === 'object' && responseData.count !== null && 'count' in responseData.count) {
-        return responseData.count.count || 0; 
+      return responseData.count.count || 0;
     }
   }
 
@@ -84,11 +84,11 @@ const Dashboard = () => {
         brandsPromise
       ]);
 
-      const userCount = getNumericalValue(usersRes, 'count'); 
-      const languageCount = getNumericalValue(languagesRes, 'data'); 
-      const categoryCount = getNumericalValue(categoriesRes, 'data'); 
-      const blogCount = getNumericalValue(blogsRes, 'data'); 
-      const brandCount = getNumericalValue(brandsRes, 'data'); 
+      const userCount = getNumericalValue(usersRes, 'count');
+      const languageCount = getNumericalValue(languagesRes, 'data');
+      const categoryCount = getNumericalValue(categoriesRes, 'data');
+      const blogCount = getNumericalValue(blogsRes, 'data');
+      const brandCount = getNumericalValue(brandsRes, 'data');
 
       setStats({
         users: userCount,
@@ -259,7 +259,7 @@ const Dashboard = () => {
         beginAtZero: true,
         ticks: {
           stepSize: 1,
-          callback: function(value) { if (value % 1 === 0) { return value; } }
+          callback: function (value) { if (value % 1 === 0) { return value; } }
         }
       }
     }

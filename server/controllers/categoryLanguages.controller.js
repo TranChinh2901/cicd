@@ -2,15 +2,15 @@ const { default: slugify } = require("slugify");
 const categoryLanguagesModel = require("../models/categoryLanguages.model");
 
 const createCategoryLanguageController = async (req, res) => {
-    try {   
-        const {nameC, imageC, descriptionC, brandLanguages} = req.body;
-        if (!nameC || !imageC  || !descriptionC || !brandLanguages) {
+    try {
+        const { nameC, imageC, descriptionC, brandLanguages } = req.body;
+        if (!nameC || !imageC || !descriptionC || !brandLanguages) {
             return res.status(400).json({
                 success: false,
                 message: 'All fields are required'
             });
         }
-        const existingCategory = await categoryLanguagesModel.findOne({nameC});
+        const existingCategory = await categoryLanguagesModel.findOne({ nameC });
         if (existingCategory) {
             return res.status(400).json({
                 success: false,
@@ -40,7 +40,11 @@ const createCategoryLanguageController = async (req, res) => {
 }
 const getCategoryLanguagesController = async (req, res) => {
     try {
-        const categoryLanguages = await categoryLanguagesModel.find({}).populate('brandLanguages');
+        const categoryLanguages = await categoryLanguagesModel.find({}).populate({
+            path: 'brandLanguages',
+            select: 'nameBrand'
+
+        });
         return res.status(200).json({
             success: true,
             message: 'Category languages retrieved successfully',
@@ -122,11 +126,11 @@ const deleteCategoryLanguageController = async (req, res) => {
 }
 const getCategoryLanguagesBySlugController = async (req, res) => {
     try {
-        const { slug } = req.params; 
-        
+        const { slug } = req.params;
+
         const brandLanguagesModel = require("../models/brandLanguages.model");
         const brand = await brandLanguagesModel.findOne({ slug });
-        
+
         if (!brand) {
             return res.status(404).json({
                 success: false,
@@ -134,17 +138,17 @@ const getCategoryLanguagesBySlugController = async (req, res) => {
                 categoryLanguages: null
             });
         }
-        
+
         const categoryLanguages = await categoryLanguagesModel.find({
-            brandLanguages: brand._id  
+            brandLanguages: brand._id
         }).populate("brandLanguages");
-        
-        
+
+
         res.status(200).json({
             success: true,
             message: "Lấy danh mục theo slug thành công",
             categoryLanguages,
-            brandName: brand.nameBrand 
+            brandName: brand.nameBrand
         });
     } catch (error) {
         console.log('Error in getCategoryLanguagesBySlugController:', error);
@@ -177,7 +181,8 @@ module.exports = {
     updateCategoryLanguageController,
     deleteCategoryLanguageController,
     getCategoryLanguagesBySlugController,
-    countCategoryLanguagesController
+    countCategoryLanguagesController,
+    // getCategoryById
 }
 
 

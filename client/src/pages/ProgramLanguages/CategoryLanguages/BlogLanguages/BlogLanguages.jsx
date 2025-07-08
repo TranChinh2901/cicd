@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from './BlogLanguages.module.css';
-const API_URL = import.meta.env.VITE_API; // Lấy URL API từ biến môi trường
+const API_URL = import.meta.env.VITE_API;
 
 const BlogLanguages = () => {
- const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const { id } = useParams();
     const [blogLanguages, setBlogLanguages] = useState([]);
 
@@ -22,7 +22,7 @@ const BlogLanguages = () => {
     }, []);
 
     const handleClickToBlog = (blog) => {
-        navigate(`/blog/${blog._id}`, { state: blog }); // truyền blog qua location.state
+        navigate(`/blog/${blog._id}`, { state: blog });
     };
 
     return (

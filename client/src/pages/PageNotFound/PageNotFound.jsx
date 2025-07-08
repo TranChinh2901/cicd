@@ -6,18 +6,18 @@ const NotFoundPage = () => {
     const navigate = useNavigate();
 
     return (
-        <Layout>
-<Result
-            status="404"
-            title="404"
-            subTitle="Xin lỗi, trang bạn tìm kiếm không tồn tại."
-            extra={
-                <Button type="primary" onClick={() => navigate('/')}>
-                    Về trang chủ
-                </Button>
-            }
-        />
-          </Layout>
+        <Layout title="Stratos - Page Not Found" description="The page you are looking for does not exist.">
+            <Result
+                status="404"
+                title="404"
+                subTitle="Xin lỗi, trang bạn tìm kiếm không tồn tại."
+                extra={
+                    <Button type="primary" onClick={() => navigate('/')}>
+                        Về trang chủ
+                    </Button>
+                }
+            />
+        </Layout>
     );
 };
 
