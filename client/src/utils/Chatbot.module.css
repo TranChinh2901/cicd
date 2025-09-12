@@ -1,0 +1,392 @@
+.chatbotWrapper {
+    position: fixed;
+    bottom: 1.8rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.toggleButton {
+    background-color: #2e5986;
+    color: white;
+    padding: 0.9rem;
+    border: 1px solid white;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.icon {
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+.chatbotContainer {
+    position: fixed;
+    bottom: 60px;
+    right: 90px;
+    width: 340px;
+    height: 450px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.closed {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+.chatHeader {
+    background-color: #2e5986;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.5rem;
+}
+
+.headerIcon {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.headerTitle {
+    font-weight: 500;
+    font-size: 1.125rem;
+    align-items: baseline;
+}
+
+.chatMessages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 300px;
+    max-height: 400px;
+    scroll-behavior: smooth;
+    z-index: 1000;
+}
+
+.welcomeMessage {
+    text-align: center;
+    color: #6b7280;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcomeIcon {
+    height: 3rem;
+    width: 3rem;
+    color: #2e5986;
+    margin-bottom: 0.5rem;
+}
+
+.messageRow {
+    display: flex;
+}
+
+.userMessageRow {
+    justify-content: flex-end;
+}
+
+.botMessageRow {
+    justify-content: flex-start;
+}
+
+.messageContent {
+    display: flex;
+    max-width: 80%;
+    align-items: flex-start;
+    gap: 0.625rem;
+}
+
+.userMessageContent {
+    flex-direction: row-reverse;
+}
+
+.botMessageContent {
+    flex-direction: row;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 9999px;
+}
+
+.userAvatar {
+    background-color: #2e5986;
+}
+
+.botAvatar {
+    background-color: #e5e7eb;
+}
+
+.avatarIcon {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.userAvatar .avatarIcon {
+    color: white;
+}
+
+.botAvatar .avatarIcon {
+    color: #4b5563;
+}
+
+.messageBubble {
+    font-size: 15px;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.userBubble {
+    background-color: #2e5986;
+    color: white;
+    border-top-right-radius: 0;
+}
+
+.loadingDots {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 20px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ccc;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.dot1 {
+    animation-delay: 0s;
+}
+
+.dot2 {
+    animation-delay: 0.2s;
+}
+
+.dot3 {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+.botBubble {
+    width: 100%;
+    max-width: 100%;
+    color: #1f2937;
+    border-top-left-radius: 0;
+    background-color: rgb(248, 245, 245);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.botBubble .messageText {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.productCard {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.productCard:hover {
+    background-color: #f9fafb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.productImage {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    border: 1px solid #f3f4f6;
+}
+
+.productInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.productName {
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.productPrice {
+    font-size: 0.875rem;
+    color: #2e5986;
+    margin: 0;
+    font-weight: 500;
+}
+
+.userBubble {
+    background-color: #2e5986;
+    color: white;
+    border-top-right-radius: 0;
+}
+
+.inputForm {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem;
+    border-top: 1px solid #e5e7eb;
+    background-color: white;
+    z-index: 1000;
+}
+
+.inputField {
+    flex: 1;
+    padding: 0.3rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+    margin-right: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.sendButton {
+    background-color: #2e5986;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    font-size: 0.6rem;
+    transition: background-color 0.2s ease;
+}
+/* Responsive design */
+
+/* Dưới 768px (mobile) */
+@media (max-width: 767px) {
+  .chatbotWrapper {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .toggleButton {
+    padding: 0.7rem;
+    font-size: 9px;
+  }
+
+  .chatbotContainer {
+    bottom: 70px;
+    right: 10px;
+    width: 95vw;
+    height: 90vh;
+    border-radius: 0.5rem;
+  }
+
+  .chatMessages {
+    padding: 0.75rem;
+    min-height: 200px;
+    max-height: 70vh;
+  }
+
+  .productCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .productImage {
+    width: 100%;
+    height: auto;
+  }
+
+  .inputField {
+    font-size: 0.9rem;
+  }
+
+  .sendButton {
+    font-size: 0.5rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .headerTitle {
+    font-size: 1rem;
+  }
+}
+
+/* Từ 768px đến 1023px (tablet) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .chatbotContainer {
+    width: 400px;
+    height: 500px;
+    bottom: 70px;
+    right: 20px;
+  }
+
+  .chatMessages {
+    max-height: 420px;
+  }
+
+  .inputField {
+    font-size: 0.9rem;
+  }
+
+  .sendButton {
+    font-size: 0.6rem;
+  }
+}
+
+/* Từ 1024px trở lên (desktop) */
+@media (min-width: 1024px) {
+  .chatbotContainer {
+    width: 340px;
+    height: 450px;
+  }
+
+  .chatMessages {
+    max-height: 400px;
+  }
+}

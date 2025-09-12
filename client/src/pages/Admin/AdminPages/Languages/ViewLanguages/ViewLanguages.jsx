@@ -33,7 +33,8 @@ const ViewLanguages = () => {
                 // console.log("Dữ liệu Category:", response.data.data);
             }
         } catch (error) {
-            console.error('Error fetching brands:', error);
+            console.log(' Lỗi khi lấy data Languages:', error);
+            
         }
     };
     const exportToExcel = () => {
