@@ -33,6 +33,17 @@ app.use('/api/v1/blog/', blogLanguagesRouter)
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+    res.status(200).json({
+        status: 'ok',
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime(),
+        environment: process.env.NODE_ENV || 'development'
+    });
+});
+
 app.post('/api/chatbot', async (req, res) => {
     try {
         const { question } = req.body;
