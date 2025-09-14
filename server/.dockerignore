@@ -1,13 +1,5 @@
 node_modules
 npm-debug.log
 .env
-.env.example
+.vscode
 .git
-.gitignore
-README.md
-Dockerfile
-.dockerignore
-coverage
-nyc_output
-logs
-*.log

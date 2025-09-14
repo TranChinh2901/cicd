@@ -1,12 +1,4 @@
 node_modules
-npm-debug.log
+build
 .env
 .git
-.gitignore
-README.md
-Dockerfile
-.dockerignore
-coverage
-nyc_output
-dist
-build
