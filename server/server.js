@@ -22,7 +22,7 @@ app.use(cors({
 app.use(morgan('dev'))
 
 connectDB();
-
+    
 const PORT = process.env.PORT || 3001;
 app.use('/api/v1/auth/', usersRouter);
 app.use('/api/v1/brand/', brandLanguagesRouter);
