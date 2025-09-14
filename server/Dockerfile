@@ -1,5 +1,5 @@
 # backend/Dockerfile (JS)
-FROM node:18-alpine
+FROM node:20-alpine
 
 # tạo user non-root (tốt cho security)
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
