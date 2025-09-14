@@ -47,12 +47,8 @@ services:
       retries: 3
       start_period: 30s
     volumes:
-      - ./server/logs:/app/logs
+      - ./logs:/app/logs
 
 networks:
   app-network:
     driver: bridge
-
-volumes:
-  mongodb_data:
-    driver: local
