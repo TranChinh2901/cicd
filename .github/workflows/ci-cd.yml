@@ -82,6 +82,8 @@ jobs:
               backend:
                 image: ${{ secrets.DOCKER_USERNAME }}/mern-backend:latest
                 restart: unless-stopped
+                ports:
+                  - "4000:4000"
                 environment:
                   - MONGO_URI=${{ secrets.MONGODB_URI }}
                   - PORT=4000
