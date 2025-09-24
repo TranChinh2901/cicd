@@ -64,49 +64,32 @@ jobs:
               chmod +x /usr/local/bin/docker-compose
             fi
             
-            # Tạo file docker-compose.prod.yml
+                        # Tạo file docker-compose.prod.yml
             cat > docker-compose.prod.yml << 'EOF'
             version: "3.8"
             services:
-              mongo:
-                image: mongo:6
-                restart: unless-stopped
-                environment:
-                  MONGO_INITDB_ROOT_USERNAME: root
-                  MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGODB_URI }}
-                volumes:
-                  - mongo_data:/data/db
-                networks:
-                  - app-network
-
               backend:
                 image: ${{ secrets.DOCKER_USERNAME }}/mern-backend:latest
                 restart: unless-stopped
-                ports:
-                  - "4000:4000"
                 environment:
                   - MONGO_URI=${{ secrets.MONGODB_URI }}
                   - PORT=4000
                   - NODE_ENV=production
                   - JWT_SECRET=${{ secrets.JWT_SECRET }}
+                ports:
+                  - "4000:4000"
                 networks:
                   - app-network
-                depends_on:
-                  - mongo
 
               client:
                 image: ${{ secrets.DOCKER_USERNAME }}/mern-frontend:latest
                 restart: unless-stopped
                 ports:
                   - "80:80"
-                  - "443:443"
                 networks:
                   - app-network
                 depends_on:
                   - backend
-
-            volumes:
-              mongo_data:
 
             networks:
               app-network:

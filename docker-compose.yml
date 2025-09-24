@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  backend:
+    image: ${DOCKER_USERNAME}/mern-backend:latest
+    environment:
+      - MONGO_URI=${MONGODB_URI}
+      - PORT=4000
+      - NODE_ENV=production
+      - JWT_SECRET=${JWT_SECRET}
+    ports:
+      - "4000:4000"
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  client:
+    image: ${DOCKER_USERNAME}/mern-frontend:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
